@@ -8,57 +8,30 @@ importers:
 
   .:
     dependencies:
-      '@angular/core':
-        specifier: 18.2.4
-        version: 18.2.4(rxjs@7.8.1)(zone.js@0.15.0)
       '@preact/signals':
         specifier: ^1.3.0
         version: 1.3.0(preact@10.23.2)
-      '@reactively/core':
-        specifier: ^0.0.8
-        version: 0.0.8
       '@solidjs/reactivity':
         specifier: ^0.0.9
         version: 0.0.9
       '@vue/reactivity':
         specifier: ^3.5.4
         version: 3.5.4
-      compostate:
-        specifier: 0.5.1
-        version: 0.5.1
-      kairo:
-        specifier: 0.6.0-rc.0
-        version: 0.6.0-rc.0
       mobx:
         specifier: ^6.13.2
         version: 6.13.2
-      mol_wire_lib:
-        specifier: ^1.0.1155
-        version: 1.0.1155
       oby:
         specifier: 15.1.2
         version: 15.1.2
       preact:
         specifier: ^10.23.2
         version: 10.23.2
-      react:
-        specifier: ^18.3.1
-        version: 18.3.1
       s-js:
         specifier: ^0.4.9
         version: 0.4.9
       signal-polyfill:
         specifier: ^0.1.0
         version: 0.1.2
-      signia:
-        specifier: ^0.1.5
-        version: 0.1.5
-      solid-js:
-        specifier: ^1.8.22
-        version: 1.8.22
-      usignal:
-        specifier: ^0.9.0
-        version: 0.9.0
       valtio:
         specifier: ^2.0.0
         version: 2.0.0(react@18.3.1)
@@ -110,13 +83,6 @@ importers:
         version: 1.2.5
 
 packages:
-
-  '@angular/core@18.2.4':
-    resolution: {integrity: sha512-ulYmYpI/ZVQ5BL38rBy4DS/9wgGWmVD9Uo6tcrLqCzt1G1G2nKwseZv009536pHfk6dj2HdPSkpcerhWh57DWw==}
-    engines: {node: ^18.19.1 || ^20.11.1 || >=22.0.0}
-    peerDependencies:
-      rxjs: ^6.5.3 || ^7.4.0
-      zone.js: ~0.14.10
 
   '@esbuild/aix-ppc64@0.21.5':
     resolution: {integrity: sha512-1SDgH6ZSPTlggy1yI6+Dbkiz8xzpHJEVAlF/AM1tHPLsf5STom9rwtjE4hKAF20FfXXNTFqEYXyJNWh1GiZedQ==}
@@ -543,9 +509,6 @@ packages:
     peerDependencies:
       preact: 10.x
 
-  '@reactively/core@0.0.8':
-    resolution: {integrity: sha512-5uAnNf2gQSm3gM7z6Lx079H1/MuDQQI+5aYfwyDFGR9nHZj8yblLY/6aOJVWp+NcBwXVBKuWQ28qWHD9F1qN1w==}
-
   '@rollup/rollup-android-arm-eabi@4.21.3':
     resolution: {integrity: sha512-MmKSfaB9GX+zXl6E8z4koOr/xU63AMVleLEa64v7R0QF/ZloMs5vcD1sHgM64GXXS1csaJutG+ddtzcueI/BLg==}
     cpu: [arm]
@@ -732,15 +695,8 @@ packages:
   color-name@1.1.3:
     resolution: {integrity: sha512-72fSenhMw2HZMTVHeCA9KCmpEIbzWiQsjN+BHcBbS9vr1mtt+vJjPdksIBNUmKAW8TFUDPJK5SUU3QhE9NEXDw==}
 
-  compostate@0.5.1:
-    resolution: {integrity: sha512-TriUixTf5T78fh1jZzTTPaj3TE2ARTbQd34x/v7ZUOd1IHoN1FkX/jGpfRDjEnZZ4jGaT2TxPWTquNAGdkmeLQ==}
-    engines: {node: '>=10'}
-
   csstype@3.1.1:
     resolution: {integrity: sha512-DJR/VvkAvSZW9bTouZue2sSxDwdTN92uHjqeKVm+0dAqdfNykRzQ95tay8aXMBAAPpUiq4Qcug2L7neoRh2Egw==}
-
-  csstype@3.1.3:
-    resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
 
   debug@4.3.7:
     resolution: {integrity: sha512-Er2nc/H7RrMXZBFCEim6TCmMk02Z8vLC2Rbi1KEBggpo0fS6l0S1nnapwmIi3yW/+GOJap1Krg4w0Hg80oCqgQ==}
@@ -832,9 +788,6 @@ packages:
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
 
-  kairo@0.6.0-rc.0:
-    resolution: {integrity: sha512-8yWTOujaeU5a6FtFCQnRhljxo8KaxQVDV6xJFxEpkCKd2azlMBmc5ARazaQUb/KJ2PWzsVdiXRbvFmreP6pbFA==}
-
   locate-path@3.0.0:
     resolution: {integrity: sha512-7AO748wWnIhNqAuaty2ZWHkQHRSNfPVIsPIfwEOWO22AmaoVrWavlOcMR5nzTLNYvp36X220/maaRsrec1G65A==}
     engines: {node: '>=6'}
@@ -857,9 +810,6 @@ packages:
 
   mobx@6.13.2:
     resolution: {integrity: sha512-GIubI2qf+P6lG6rSEG0T2pg3jV9/0+O0ncF09+0umRe75+Cbnh1KNLM1GvbTY9RSc7QuU+LcPNZfxDY8B+3XRg==}
-
-  mol_wire_lib@1.0.1155:
-    resolution: {integrity: sha512-q5r5/615KmV5dvM13zak0mYBi5c0Na6RGDRgunZRmezkiIdu4YyVtjPL9syUGpNib8KLzj5acTTWm2BXNC7MHw==}
 
   mol_wire_lib@1.0.488:
     resolution: {integrity: sha512-AqGNHtM5HvxdYKXMt85ESXG+Owj/E6HEUM2a0SKoCpx+R4uHrqM3V8HABt13twXzMDDfjO713TRWQb7Qb4EQRA==}
@@ -950,16 +900,6 @@ packages:
   s-js@0.4.9:
     resolution: {integrity: sha512-RtpOm+cM6O0sHg6IA70wH+UC3FZcND+rccBZpBAHzlUgNO2Bm5BN+FnM8+OBxzXdwpKWFwX11JGF0MFRkhSoIQ==}
 
-  seroval-plugins@1.1.1:
-    resolution: {integrity: sha512-qNSy1+nUj7hsCOon7AO4wdAIo9P0jrzAMp18XhiOzA6/uO5TKtP7ScozVJ8T293oRIvi5wyCHSM4TrJo/c/GJA==}
-    engines: {node: '>=10'}
-    peerDependencies:
-      seroval: ^1.0
-
-  seroval@1.1.1:
-    resolution: {integrity: sha512-rqEO6FZk8mv7Hyv4UCj3FD3b6Waqft605TLfsCe/BiaylRpyyMC0b+uA5TJKawX3KzMrdi3wsLbCaLplrQmBvQ==}
-    engines: {node: '>=10'}
-
   set-blocking@2.0.0:
     resolution: {integrity: sha512-KiKBS8AnWGEyLzofFfmvKwpdPzqiy16LvQfK3yv/fVH7Bj13/wl3JSR1J+rfgRE9q7xUJK4qvgS8raSOeLUehw==}
 
@@ -969,14 +909,8 @@ packages:
   signal-polyfill@0.1.2:
     resolution: {integrity: sha512-HT9d+L9NMiTzMxb/tU2Baym6129ROyRETSjvchvSkQa7wN0+SrG/IUlsaBLqKn2c+4mlze6CgQBEvgBjxOpiaQ==}
 
-  signia@0.1.5:
-    resolution: {integrity: sha512-ViJpywl7H1W6zRfqbu+86xpSCcuq6tpOen7I+gR8axaiyZP8txRNAoeCsL20UkuqzG/Ybtk0u4C2lawkiwPlnw==}
-
   solid-js@1.6.11:
     resolution: {integrity: sha512-JquQQHPArGq+i2PLURxJ99Pcz2/1docpbycSio/cKSA0SeI3z5zRjy0TNcH4NRYvbOLrcini+iovXwnexKabyw==}
-
-  solid-js@1.8.22:
-    resolution: {integrity: sha512-VBzN5j+9Y4rqIKEnK301aBk+S7fvFSTs9ljg+YEdFxjNjH0hkjXPiQRcws9tE5fUzMznSS6KToL5hwMfHDgpLA==}
 
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
@@ -1021,9 +955,6 @@ packages:
   tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
 
-  tslib@2.7.0:
-    resolution: {integrity: sha512-gLXCKdN1/j47AiHiOkJN69hJmcbGTHI0ImLmbYLHykhgeN0jVGola9yVjFgzCUklsZQMW55o+dW7IXv3RCXDzA==}
-
   typescript@4.9.5:
     resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
     engines: {node: '>=4.2.0'}
@@ -1034,9 +965,6 @@ packages:
 
   usignal@0.8.14:
     resolution: {integrity: sha512-pPWOcODVi1bT11Mj1j4wfQkbHJA4uhvZrHuiQDs15J+mKy46WgeJhyYRGTGAa4Zox2cKjAmurDtJkoD9lURUnQ==}
-
-  usignal@0.9.0:
-    resolution: {integrity: sha512-/6/dn+4qKE9MN3k5W76VzMDr5cMPNLswvOR6lHFttTADvf6TB/uhGmSOQpFAxcugTzSwG4vX5NiNEqkiFfzDlg==}
 
   v8-natives@1.2.5:
     resolution: {integrity: sha512-CVNliz6KF2yet3HBIkbFJKZmjlt95C8dsNZDnwoS6X98+QJRpsSz9uxo3TziBqdyJQkWwfD3VG9lRzsQNvF24Q==}
@@ -1136,16 +1064,7 @@ packages:
   yargs@13.3.2:
     resolution: {integrity: sha512-AX3Zw5iPruN5ie6xGRIDgqkT+ZhnRlZMLMHAs8tg7nRruy2Nb+i5o9bwghAogtM08q1dpr2LVoS8KSTMYpWXUw==}
 
-  zone.js@0.15.0:
-    resolution: {integrity: sha512-9oxn0IIjbCZkJ67L+LkhYWRyAy7axphb3VgE2MBDlOqnmHMPWGYMxJxBYFueFq/JGY2GMwS0rU+UCLunEmy5UA==}
-
 snapshots:
-
-  '@angular/core@18.2.4(rxjs@7.8.1)(zone.js@0.15.0)':
-    dependencies:
-      rxjs: 7.8.1
-      tslib: 2.7.0
-      zone.js: 0.15.0
 
   '@esbuild/aix-ppc64@0.21.5':
     optional: true
@@ -1363,8 +1282,6 @@ snapshots:
       '@preact/signals-core': 1.8.0
       preact: 10.23.2
 
-  '@reactively/core@0.0.8': {}
-
   '@rollup/rollup-android-arm-eabi@4.21.3':
     optional: true
 
@@ -1533,11 +1450,7 @@ snapshots:
 
   color-name@1.1.3: {}
 
-  compostate@0.5.1: {}
-
   csstype@3.1.1: {}
-
-  csstype@3.1.3: {}
 
   debug@4.3.7:
     dependencies:
@@ -1667,9 +1580,8 @@ snapshots:
 
   is-number@7.0.0: {}
 
-  js-tokens@4.0.0: {}
-
-  kairo@0.6.0-rc.0: {}
+  js-tokens@4.0.0:
+    optional: true
 
   locate-path@3.0.0:
     dependencies:
@@ -1683,6 +1595,7 @@ snapshots:
   loose-envify@1.4.0:
     dependencies:
       js-tokens: 4.0.0
+    optional: true
 
   loupe@3.1.1:
     dependencies:
@@ -1693,8 +1606,6 @@ snapshots:
       '@jridgewell/sourcemap-codec': 1.5.0
 
   mobx@6.13.2: {}
-
-  mol_wire_lib@1.0.1155: {}
 
   mol_wire_lib@1.0.488: {}
 
@@ -1741,6 +1652,7 @@ snapshots:
   react@18.3.1:
     dependencies:
       loose-envify: 1.4.0
+    optional: true
 
   readdirp@3.6.0:
     dependencies:
@@ -1778,29 +1690,15 @@ snapshots:
 
   s-js@0.4.9: {}
 
-  seroval-plugins@1.1.1(seroval@1.1.1):
-    dependencies:
-      seroval: 1.1.1
-
-  seroval@1.1.1: {}
-
   set-blocking@2.0.0: {}
 
   siginfo@2.0.0: {}
 
   signal-polyfill@0.1.2: {}
 
-  signia@0.1.5: {}
-
   solid-js@1.6.11:
     dependencies:
       csstype: 3.1.1
-
-  solid-js@1.8.22:
-    dependencies:
-      csstype: 3.1.3
-      seroval: 1.1.1
-      seroval-plugins: 1.1.1(seroval@1.1.1)
 
   source-map-js@1.2.1: {}
 
@@ -1834,15 +1732,11 @@ snapshots:
 
   tslib@2.6.2: {}
 
-  tslib@2.7.0: {}
-
   typescript@4.9.5: {}
 
   undici-types@6.19.8: {}
 
   usignal@0.8.14: {}
-
-  usignal@0.9.0: {}
 
   v8-natives@1.2.5: {}
 
@@ -1944,5 +1838,3 @@ snapshots:
       which-module: 2.0.0
       y18n: 4.0.3
       yargs-parser: 13.1.2
-
-  zone.js@0.15.0: {}
