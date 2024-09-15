@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "vitest run",
-    "bench": "esbuild src/index.ts --bundle --format=cjs --platform=node | node --expose-gc"
+    "build": "esbuild src/index.ts --bundle --format=cjs --platform=node --outdir=dist --sourcemap=external",
+    "bench": "node dist/index.js --expose-gc"
   },
   "keywords": [],
   "author": "",

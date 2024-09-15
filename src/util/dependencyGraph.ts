@@ -54,13 +54,14 @@ export function runGraph(
   readFraction: number,
   framework: ReactiveFramework
 ): number {
-  const rand = pseudoRandom();
+  const rand = pseudoRandom("random-seed");
   const { sources, layers } = graph;
   const leaves = layers[layers.length - 1];
   const skipCount = Math.round(leaves.length * (1 - readFraction));
   const readLeaves = removeElems(leaves, skipCount, rand);
 
   for (let i = 0; i < iterations; i++) {
+    console.log(i);
     framework.withBatch(() => {
       const sourceDex = i % sources.length;
       sources[sourceDex].write(i + sourceDex);
