@@ -27,6 +27,7 @@ const cellx = (framework: ReactiveFramework, layers: number) => {
         prop4: framework.computed(() => m.prop3.read()),
       };
 
+      // [@vue/reactivity] If you remove these 4 lines, the tests seem to work fine.
       framework.effect(() => s.prop1.read());
       framework.effect(() => s.prop2.read());
       framework.effect(() => s.prop3.read());
@@ -52,10 +53,13 @@ const cellx = (framework: ReactiveFramework, layers: number) => {
     ] as const;
 
     framework.withBatch(() => {
+      console.log("start batch write");
+      // [@vue/reactivity] this line seems to be where `@vue/reactivity` hangs.
       start.prop1.write(4);
       start.prop2.write(3);
       start.prop3.write(2);
       start.prop4.write(1);
+      console.log("end batch write");
     });
 
     const after = [
