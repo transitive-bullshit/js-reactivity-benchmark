@@ -1,21 +1,19 @@
 import { TestConfig, FrameworkInfo } from "./util/frameworkTypes";
 
-import { mobxFramework } from "./frameworks/mobx";
-import { tc39SignalsProposalStage0 } from "./frameworks/tc39-proposal-signals-stage-0";
-import { preactSignalFramework } from "./frameworks/preactSignals";
-import { sFramework } from "./frameworks/s";
-import { vueReactivityFramework } from "./frameworks/vueReactivity";
+// import { mobxFramework } from "./frameworks/mobx";
+// import { tc39SignalsProposalStage0 } from "./frameworks/tc39-proposal-signals-stage-0";
+// import { preactSignalFramework } from "./frameworks/preactSignals";
+// import { sFramework } from "./frameworks/s";
+// import { vueReactivityFramework } from "./frameworks/vueReactivity";
 import { valtioFramework } from "./frameworks/valtio";
 
 export const frameworkInfo: FrameworkInfo[] = [
-  { framework: preactSignalFramework, testPullCounts: true },
-  { framework: sFramework },
-  // NOTE: MobX currently hangs on some of the dynamic tests, so disable it if you want to run them.
-  { framework: mobxFramework },
-  { framework: tc39SignalsProposalStage0, testPullCounts: true },
-  // NOTE: Valtio currently hangs on some of the dynamic tests, so disable it if you want to run them.
+  // { framework: preactSignalFramework, testPullCounts: true },
+  // { framework: sFramework },
+  // { framework: mobxFramework },
+  // { framework: tc39SignalsProposalStage0, testPullCounts: true },
   { framework: valtioFramework },
-  { framework: vueReactivityFramework, testPullCounts: true },
+  // { framework: vueReactivityFramework, testPullCounts: true },
 ];
 
 export const perfTests: TestConfig[] = [
