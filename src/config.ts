@@ -11,7 +11,7 @@ export const frameworkInfo: FrameworkInfo[] = [
   // { framework: preactSignalFramework, testPullCounts: true },
   // { framework: sFramework },
   // NOTE: MobX currently hangs on some of the dynamic tests, so disable it if you want to run them.
-  { framework: mobxFramework },
+  { framework: mobxFramework, testPullCounts: false },
   // { framework: tc39SignalsProposalStage0, testPullCounts: true },
   // // NOTE: Valtio currently hangs on some of the dynamic tests, so disable it if you want to run them.
   // { framework: valtioFramework },
@@ -85,17 +85,17 @@ export const perfTests: TestConfig[] = [
     },
   },
   // NOTE: Several of the frameworks hang on this test, so disabling it for now.
-  // {
-  //   name: 'very dynamic',
-  //   width: 100,
-  //   totalLayers: 15,
-  //   staticFraction: 0.5,
-  //   nSources: 6,
-  //   readFraction: 1,
-  //   iterations: 2000,
-  //   expected: {
-  //     sum: 15664996402790400,
-  //     count: 1078000
-  //   }
-  // }
+  {
+    name: "very dynamic",
+    width: 100,
+    totalLayers: 15,
+    staticFraction: 0.5,
+    nSources: 6,
+    readFraction: 1,
+    iterations: 2000,
+    expected: {
+      sum: 15664996402790400,
+      count: 1078000,
+    },
+  },
 ];

@@ -59,18 +59,29 @@ export function runGraph(
   const leaves = layers[layers.length - 1];
   const skipCount = Math.round(leaves.length * (1 - readFraction));
   const readLeaves = removeElems(leaves, skipCount, rand);
+  let sum = 0;
 
-  for (let i = 0; i < iterations; i++) {
-    framework.withBatch(() => {
+  framework.withBatch(() => {
+    // const start = Date.now();
+
+    for (let i = 0; i < iterations; i++) {
+      // Useful for debugging edge cases for some frameworks that experience
+      // dramatic slow downs for certain test configurations.
+      // if (i % 100 === 0) {
+      //   console.log("iteration:", i, "delta:", Date.now() - start);
+      // }
+
       const sourceDex = i % sources.length;
       sources[sourceDex].write(i + sourceDex);
-    });
-    for (const leaf of readLeaves) {
-      leaf.read();
-    }
-  }
 
-  const sum = readLeaves.reduce((total, leaf) => leaf.read() + total, 0);
+      for (const leaf of readLeaves) {
+        leaf.read();
+      }
+    }
+
+    sum = readLeaves.reduce((total, leaf) => leaf.read() + total, 0);
+  });
+
   return sum;
 }
 

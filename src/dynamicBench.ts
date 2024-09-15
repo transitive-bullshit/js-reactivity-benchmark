@@ -10,7 +10,7 @@ import { fastestTest } from "./util/benchRepeat";
  */
 export async function dynamicBench(
   frameworkTest: FrameworkInfo,
-  testRepeats = 5
+  testRepeats = 1
 ): Promise<void> {
   const { framework } = frameworkTest;
   for (const config of perfTests) {
@@ -23,7 +23,7 @@ export async function dynamicBench(
     }
 
     // warm up
-    runOnce();
+    // runOnce();
 
     const timedResult = await fastestTest(testRepeats, () => {
       counter.count = 0;
