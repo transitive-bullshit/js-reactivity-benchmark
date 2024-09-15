@@ -11,18 +11,12 @@ importers:
       '@preact/signals':
         specifier: ^1.3.0
         version: 1.3.0(preact@10.23.2)
-      '@solidjs/reactivity':
-        specifier: ^0.0.9
-        version: 0.0.9
       '@vue/reactivity':
         specifier: ^3.5.4
         version: 3.5.4
       mobx:
         specifier: ^6.13.2
         version: 6.13.2
-      oby:
-        specifier: 15.1.2
-        version: 15.1.2
       preact:
         specifier: ^10.23.2
         version: 10.23.2
@@ -45,12 +39,6 @@ importers:
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
-      rxjs:
-        specifier: ^7.8.1
-        version: 7.8.1
-      v8-natives:
-        specifier: ^1.2.5
-        version: 1.2.5
       vitest:
         specifier: ^2.1.0
         version: 2.1.0(@types/node@22.5.4)
@@ -589,9 +577,6 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@solidjs/reactivity@0.0.9':
-    resolution: {integrity: sha512-duaaHwXTTY/YF+H9AT4ZEiL6H9FwMxQOMrTIDpsRYLBkbl3Y/FKaeoYu7CK4Ontbra6/LAi0DZyb/M6vCcJoMw==}
-
   '@types/estree@1.0.5':
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
 
@@ -826,9 +811,6 @@ packages:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
 
-  oby@15.1.2:
-    resolution: {integrity: sha512-6QD9iEoPzV+pMDdcg3RtFWhgDX8pS5hZouVHvgXGDy3Q9RxFfnI3CYv9i62keeuX+qk6iN2z5E9FD3q3OckZ6A==}
-
   p-limit@2.3.0:
     resolution: {integrity: sha512-//88mFWSJx8lxCzwdAABTJL2MyWB12+eIY7MDL2SqLmAkeKU9qxRvWuSyTjm3FUmpBEMuFfckAIqEaVGUDxb6w==}
     engines: {node: '>=6'}
@@ -894,9 +876,6 @@ packages:
     engines: {node: '>=18.0.0', npm: '>=8.0.0'}
     hasBin: true
 
-  rxjs@7.8.1:
-    resolution: {integrity: sha512-AA3TVj+0A2iuIoQkWEK/tqFjBq2j+6PO6Y0zJcvzLAFhEFIO3HL0vls9hWLncZbAAbK0mar7oZ4V079I/qPMxg==}
-
   s-js@0.4.9:
     resolution: {integrity: sha512-RtpOm+cM6O0sHg6IA70wH+UC3FZcND+rccBZpBAHzlUgNO2Bm5BN+FnM8+OBxzXdwpKWFwX11JGF0MFRkhSoIQ==}
 
@@ -951,9 +930,6 @@ packages:
   to-regex-range@5.0.1:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
     engines: {node: '>=8.0'}
-
-  tslib@2.6.2:
-    resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
 
   typescript@4.9.5:
     resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
@@ -1330,8 +1306,6 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.21.3':
     optional: true
 
-  '@solidjs/reactivity@0.0.9': {}
-
   '@types/estree@1.0.5': {}
 
   '@types/node@18.14.0': {}
@@ -1615,8 +1589,6 @@ snapshots:
 
   normalize-path@3.0.0: {}
 
-  oby@15.1.2: {}
-
   p-limit@2.3.0:
     dependencies:
       p-try: 2.2.0
@@ -1684,10 +1656,6 @@ snapshots:
       '@rollup/rollup-win32-x64-msvc': 4.21.3
       fsevents: 2.3.3
 
-  rxjs@7.8.1:
-    dependencies:
-      tslib: 2.6.2
-
   s-js@0.4.9: {}
 
   set-blocking@2.0.0: {}
@@ -1729,8 +1697,6 @@ snapshots:
   to-regex-range@5.0.1:
     dependencies:
       is-number: 7.0.0
-
-  tslib@2.6.2: {}
 
   typescript@4.9.5: {}
 

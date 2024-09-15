@@ -8,12 +8,11 @@ import { vueReactivityFramework } from "./frameworks/vueReactivity";
 import { valtioFramework } from "./frameworks/valtio";
 
 export const frameworkInfo: FrameworkInfo[] = [
+  { framework: preactSignalFramework, testPullCounts: true },
+  { framework: sFramework },
   // NOTE: MobX currently hangs on some of the dynamic tests, so disable it if you want to run them.
   { framework: mobxFramework },
   { framework: tc39SignalsProposalStage0, testPullCounts: true },
-  // { framework: kairoFramework, testPullCounts: true },
-  { framework: preactSignalFramework, testPullCounts: true },
-  { framework: sFramework },
   // NOTE: Valtio currently hangs on some of the dynamic tests, so disable it if you want to run them.
   { framework: valtioFramework },
   { framework: vueReactivityFramework, testPullCounts: true },
