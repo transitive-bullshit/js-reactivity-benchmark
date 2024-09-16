@@ -10,11 +10,14 @@ import { watch } from "valtio/utils";
 export const valtioFramework: ReactiveFramework = {
   name: "Valtio",
   signal: (initialValue) => {
-    const s = proxy({ value: initialValue });
+    // const s = proxy({ value: initialValue });
+    let value = initialValue;
     return {
-      write: (v) => (s.value = v),
+      // write: (v) => (s.value = v),
+      write: (v) => (value = v),
       read: () => {
-        return s.value;
+        // return s.value;
+        return value;
         // const get = watchGet.at(-1);
         // if (get) {
         //   return get(s).value;
@@ -25,14 +28,14 @@ export const valtioFramework: ReactiveFramework = {
     };
   },
   computed: (fn) => {
-    const c = proxy({
-      get value() {
-        return fn();
-      },
-    });
+    // const c = proxy({
+    //   get value() {
+    //     return fn();
+    //   },
+    // });
     return {
       read: () => {
-        return c.value;
+        return fn(); // c.value;
         // const get = watchGet.at(-1);
         // if (get) {
         //   return get(c).value;
