@@ -28,8 +28,8 @@ export const perfTests: TestConfig[] = [
     readFraction: 0.2,
     iterations: 600000,
     expected: {
-      sum: 19199968,
-      count: 3480000,
+      sum: 19199832,
+      count: 2640004,
     },
   },
   {
@@ -41,8 +41,8 @@ export const perfTests: TestConfig[] = [
     readFraction: 0.2,
     iterations: 15000,
     expected: {
-      sum: 302310782860,
-      count: 1155000,
+      sum: 302310477864,
+      count: 1125003,
     },
   },
   {
@@ -55,7 +55,7 @@ export const perfTests: TestConfig[] = [
     iterations: 7000,
     expected: {
       sum: 29355933696000,
-      count: 1463000,
+      count: 1473791,
     },
   },
   {
@@ -68,7 +68,7 @@ export const perfTests: TestConfig[] = [
     iterations: 3000,
     expected: {
       sum: 1171484375000,
-      count: 732000,
+      count: 735756,
     },
   },
   {
@@ -81,10 +81,9 @@ export const perfTests: TestConfig[] = [
     iterations: 500,
     expected: {
       sum: 3.0239642676898464e241,
-      count: 1246500,
+      count: 1246502,
     },
   },
-  // NOTE: Several of the frameworks hang on this test, so disabling it for now.
   {
     name: "very dynamic",
     width: 100,
@@ -95,7 +94,7 @@ export const perfTests: TestConfig[] = [
     iterations: 2000,
     expected: {
       sum: 15664996402790400,
-      count: 1078000,
+      count: 1078671,
     },
   },
 ];

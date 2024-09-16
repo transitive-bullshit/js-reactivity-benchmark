@@ -15,6 +15,7 @@
     "@vue/reactivity": "^3.5.4",
     "mobx": "^6.13.2",
     "preact": "^10.23.2",
+    "random": "^5.1.0",
     "s-js": "^0.4.9",
     "signal-polyfill": "^0.1.0",
     "valtio": "^2.0.0"

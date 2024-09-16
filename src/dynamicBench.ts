@@ -1,4 +1,4 @@
-import { makeGraph, runGraph } from "./util/dependencyGraph";
+import { Counter, makeGraph, runGraph } from "./util/dependencyGraph";
 import { logPerfResult, perfRowStrings } from "./util/perfLogging";
 import { verifyBenchResult } from "./util/perfTests";
 import { FrameworkInfo } from "./util/frameworkTypes";
@@ -16,9 +16,12 @@ export async function dynamicBench(
   for (const config of perfTests) {
     const { iterations, readFraction } = config;
 
-    const { graph, counter } = makeGraph(framework, config);
+    let counter = new Counter();
 
     function runOnce(): number {
+      // Create a new graph from scratch for each run to ensure they're independent
+      // from each other.
+      const graph = makeGraph(framework, config, counter);
       return runGraph(graph, iterations, readFraction, framework);
     }
 
