@@ -1,6 +1,6 @@
 import { ReactiveFramework } from "../util/reactiveFramework";
-import { proxy } from "valtio/vanilla";
-import { watch } from "valtio/utils";
+// import { proxy } from "valtio/vanilla";
+// import { watch } from "valtio/utils";
 
 // type WatchGet = <T extends object>(proxyObject: T) => T;
 
