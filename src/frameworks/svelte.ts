@@ -10,33 +10,84 @@ import * as $ from "svelte/internal/client";
 // efficient TS implementations available, I wanted to include it in the
 // benchmark suite regardless.
 
+type Signal<T> = {
+  get value(): T;
+  set value(v: T);
+
+  /** @internal */
+  state: any;
+};
+
+type Computed<T> = {
+  get value(): T;
+
+  /** @internal */
+  derived: any;
+};
+
+export function signal<T>(initialValue: T): Signal<T> {
+  const state = $.state(initialValue);
+  return {
+    get value() {
+      return $.get(state);
+    },
+    set value(v: T) {
+      $.set(state, v);
+    },
+    state,
+  };
+}
+
+export function computed<T>(fn: () => T): Computed<T> {
+  const derived = $.derived(fn);
+  return {
+    get value() {
+      return $.get(derived);
+    },
+    derived,
+  };
+}
+
+export function effect(fn: () => void | (() => void)): any {
+  // TODO: how to return a cleanup function?
+  return $.render_effect(fn);
+}
+
+export function batch<T = undefined>(fn?: () => T): T {
+  return $.flush_sync(fn);
+}
+
+export function effectRoot<T>(fn: () => T): () => void {
+  return $.effect_root(fn);
+}
+
+export function tick(): Promise<void> {
+  return $.tick();
+}
+
 export const svelteFramework: ReactiveFramework = {
   name: "Svelte v5",
   signal: (initialValue) => {
-    const s = $.state(initialValue);
+    const s = signal(initialValue);
     return {
-      write: (v) => $.set(s, v),
-      read: () => $.get(s),
+      write: (v) => (s.value = v),
+      read: () => s.value,
     };
   },
   computed: (fn) => {
-    const c = $.derived(fn);
+    const c = computed(fn);
     return {
-      read: () => $.get(c),
+      read: () => c.value,
     };
   },
-  effect: (fn) => {
-    $.render_effect(fn);
-  },
-  withBatch: (fn) => {
-    $.flush_sync(fn);
-  },
+  effect: effect,
+  withBatch: batch,
   withBuild: (fn) => {
     let res: ReturnType<typeof fn> | undefined;
-    const destroy = $.effect_root(() => {
+    const destroy = effectRoot(() => {
       res = fn();
     });
-    $.tick();
+    tick();
     destroy();
     return res!;
   },
