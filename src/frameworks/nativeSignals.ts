@@ -8,7 +8,7 @@ import {
 } from "native-signals";
 import { ReactiveFramework } from "../util/reactiveFramework";
 
-let prevEffectScope: EffectScope | undefined;
+let scope: EffectScope | undefined;
 
 export const nativeFramework: ReactiveFramework = {
   name: "native-signals",
@@ -32,8 +32,8 @@ export const nativeFramework: ReactiveFramework = {
     System.endBatch();
   },
   withBuild: (fn) => {
-    prevEffectScope?.stop();
-    prevEffectScope = effectScope();
-    return prevEffectScope.run(fn);
+    scope?.stop();
+    scope = effectScope();
+    return scope.run(fn);
   },
 };
