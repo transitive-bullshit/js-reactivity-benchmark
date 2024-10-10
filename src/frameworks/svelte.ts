@@ -28,13 +28,13 @@ export const svelteFramework: ReactiveFramework = {
   effect: (fn) => {
     $.render_effect(fn);
   },
-  withBatch: (fn) => {
-    $.flush_sync(fn);
-  },
+  withBatch: $.flush_sync,
   withBuild: <T>(fn: () => T): T => {
     let res: T | undefined;
     $.effect_root(() => {
-      res = fn();
+      $.render_effect(() => {
+        res = fn();
+      });
     });
     return res!;
   },
