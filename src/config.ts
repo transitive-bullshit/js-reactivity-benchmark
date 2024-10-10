@@ -1,5 +1,6 @@
 import { TestConfig, FrameworkInfo } from "./util/frameworkTypes";
 
+import { alienFramework } from "./frameworks/alienSignals";
 import { angularFramework } from "./frameworks/angularSignals";
 import { mobxFramework } from "./frameworks/mobx";
 import { tc39SignalsProposalStage0 } from "./frameworks/tc39-proposal-signals-stage-0";
@@ -18,6 +19,7 @@ import { svelteFramework } from "./frameworks/svelte";
 // import { valtioFramework } from "./frameworks/valtio";
 
 export const frameworkInfo: FrameworkInfo[] = [
+  { framework: alienFramework, testPullCounts: true },
   { framework: preactSignalFramework, testPullCounts: true },
   { framework: svelteFramework, testPullCounts: true },
   { framework: tc39SignalsProposalStage0, testPullCounts: true },
