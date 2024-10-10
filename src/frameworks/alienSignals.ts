@@ -5,12 +5,12 @@ import {
   effectScope,
   signal,
   System,
-} from "native-signals";
+} from "alien-signals";
 import { ReactiveFramework } from "../util/reactiveFramework";
 
 let scope: EffectScope | undefined;
 
-export const nativeFramework: ReactiveFramework = {
+export const alienFramework: ReactiveFramework = {
   name: "native-signals",
   signal: (initial) => {
     const data = signal(initial);
