@@ -11,7 +11,7 @@ import { ReactiveFramework } from "../util/reactiveFramework";
 let scope: EffectScope | undefined;
 
 export const alienFramework: ReactiveFramework = {
-  name: "native-signals",
+  name: "alien-signals",
   signal: (initial) => {
     const data = signal(initial);
     return {
