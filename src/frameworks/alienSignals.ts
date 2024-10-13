@@ -1,10 +1,22 @@
 import {
   computed,
   effect,
+  effectScope,
+  EffectScope,
+  enableEffectsPropagation,
   signal,
   System,
 } from "alien-signals";
 import { ReactiveFramework } from "../util/reactiveFramework";
+
+let scope: EffectScope | undefined;
+
+const useEffectScope = false;
+const useEffectsPropagation = false;
+
+if (useEffectsPropagation) {
+  enableEffectsPropagation();
+}
 
 export const alienFramework: ReactiveFramework = {
   name: "alien-signals",
@@ -27,5 +39,12 @@ export const alienFramework: ReactiveFramework = {
     fn();
     System.endBatch();
   },
-  withBuild: (fn) => fn(),
+  withBuild: (fn) => {
+    if (useEffectScope) {
+      scope?.stop();
+      scope = effectScope();
+      scope.run(fn);
+    }
+    return fn();
+  },
 };
