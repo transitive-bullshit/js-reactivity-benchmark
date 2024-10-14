@@ -1,9 +1,9 @@
 import {
   computed,
+  Dependency,
   effect,
   effectScope,
   EffectScope,
-  enableEffectsPropagation,
   signal,
   System,
 } from "alien-signals";
@@ -12,10 +12,10 @@ import { ReactiveFramework } from "../util/reactiveFramework";
 let scope: EffectScope | undefined;
 
 const useEffectScope = false;
-const useEffectsPropagation = false;
+const useStrictPropagation = false;
 
-if (useEffectsPropagation) {
-  enableEffectsPropagation();
+if (useStrictPropagation) {
+  Dependency.setPropagationMode('strict');
 }
 
 export const alienFramework: ReactiveFramework = {
