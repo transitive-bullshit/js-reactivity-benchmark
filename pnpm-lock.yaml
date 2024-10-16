@@ -60,8 +60,8 @@ importers:
         specifier: ^1.8.22
         version: 1.8.22
       svelte:
-        specifier: 5.0.0-next.267
-        version: 5.0.0-next.267
+        specifier: 5.0.0-next.268
+        version: 5.0.0-next.268
       usignal:
         specifier: ^0.9.0
         version: 0.9.0
@@ -1049,8 +1049,8 @@ packages:
     resolution: {integrity: sha512-DuRs1gKbBqsMKIZlrffwlug8MHkcnpjs5VPmL1PAh+mA30U0DTotfDZ0d2UUsXpPmPmMMJ6W773MaA3J+lbiWA==}
     engines: {node: '>=6'}
 
-  svelte@5.0.0-next.267:
-    resolution: {integrity: sha512-kqEqvKC93Dn6R9hei36GCod21VjGCkjEkx7SlfmUXiUsQoOWLalo8A9P7oY8wqvFwo6UT6K3ZRxQ2tSgVZk2Iw==}
+  svelte@5.0.0-next.268:
+    resolution: {integrity: sha512-QshHUiDlrIfr9z2r0crFbKwhepw34qbMD7p7Hl8Fiyyo5McqIPBgGASV6QAvSqCIQ6zc0bQfh74oMB/8i9Fxvg==}
     engines: {node: '>=18'}
 
   tinybench@2.9.0:
@@ -1920,7 +1920,7 @@ snapshots:
     dependencies:
       ansi-regex: 4.1.1
 
-  svelte@5.0.0-next.267:
+  svelte@5.0.0-next.268:
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@jridgewell/sourcemap-codec': 1.5.0
