@@ -32,9 +32,7 @@ export const svelteFramework: ReactiveFramework = {
   withBuild: <T>(fn: () => T): T => {
     let res: T | undefined;
     $.effect_root(() => {
-      $.render_effect(() => {
-        res = fn();
-      });
+      res = fn();
     });
     return res!;
   },
