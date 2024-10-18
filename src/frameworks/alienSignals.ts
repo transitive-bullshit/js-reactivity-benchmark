@@ -43,7 +43,7 @@ export const alienFramework: ReactiveFramework = {
     if (useEffectScope) {
       scope?.stop();
       scope = effectScope();
-      scope.run(fn);
+      return scope.run(fn);
     }
     return fn();
   },
