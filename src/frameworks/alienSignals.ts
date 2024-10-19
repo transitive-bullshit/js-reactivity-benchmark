@@ -2,16 +2,11 @@ import {
   computed,
   Dependency,
   effect,
-  effectScope,
-  EffectScope,
   signal,
   System,
 } from "alien-signals";
 import { ReactiveFramework } from "../util/reactiveFramework";
 
-let scope: EffectScope | undefined;
-
-const useEffectScope = false;
 const useStrictPropagation = false;
 
 if (useStrictPropagation) {
@@ -39,12 +34,5 @@ export const alienFramework: ReactiveFramework = {
     fn();
     System.endBatch();
   },
-  withBuild: (fn) => {
-    if (useEffectScope) {
-      scope?.stop();
-      scope = effectScope();
-      return scope.run(fn);
-    }
-    return fn();
-  },
+  withBuild: (fn) => fn(),
 };
