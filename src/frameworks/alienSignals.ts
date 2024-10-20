@@ -1,17 +1,11 @@
 import {
   computed,
-  Dependency,
   effect,
+  endBatch,
   signal,
-  System,
+  startBatch,
 } from "alien-signals";
 import { ReactiveFramework } from "../util/reactiveFramework";
-
-const useStrictPropagation = false;
-
-if (useStrictPropagation) {
-  Dependency.setPropagationMode('strict');
-}
 
 export const alienFramework: ReactiveFramework = {
   name: "alien-signals",
@@ -30,9 +24,9 @@ export const alienFramework: ReactiveFramework = {
   },
   effect: (fn) => effect(fn),
   withBatch: (fn) => {
-    System.startBatch();
+    startBatch();
     fn();
-    System.endBatch();
+    endBatch();
   },
   withBuild: (fn) => fn(),
 };
