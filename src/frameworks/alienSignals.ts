@@ -4,7 +4,7 @@ import {
   endBatch,
   signal,
   startBatch,
-} from "alien-signals";
+} from "alien-signals/esm";
 import { ReactiveFramework } from "../util/reactiveFramework";
 
 export const alienFramework: ReactiveFramework = {
