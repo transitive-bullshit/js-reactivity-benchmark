@@ -19,6 +19,7 @@ We're also working on enabling consistent logging and efficient tracking of GC t
 
 ## Frameworks
 
+- [Alien Signals](https://github.com/stackblitz/alien-signals) 🔥
 - [Angular Signals](https://angular.dev/guide/signals/)
 - [Compostate](https://github.com/lxsmnsyc/compostate)
 - [Kairo](https://github.com/3Shain/kairo)
@@ -40,8 +41,8 @@ We're also working on enabling consistent logging and efficient tracking of GC t
 ## Results
 
 <p align='center'>
-  <img src="https://github.com/user-attachments/assets/920d9e02-d72e-4d6b-bfd0-7957cdd925b6" alt="Average benchmark results across frameworks">
+  <img src="https://github.com/user-attachments/assets/b70dfedc-7eb8-4aca-b257-7f6ccadac11a" alt="Average benchmark results across frameworks">
   (<em>lower times are better</em>)
 </p>
 
-These results were last updated _September 2024_ on an M3 Macbook Pro using Node.js v22.4.1.
+These results were last updated _November 22 2024_ on an M3 Macbook Pro using Node.js v22.10.0.
