@@ -13,32 +13,32 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@angular/core": "18.2.4",
+    "@angular/core": "19.0.0",
     "@preact/signals": "^1.3.0",
     "@reactively/core": "^0.0.8",
     "@solidjs/reactivity": "^0.0.9",
-    "@vue/reactivity": "^3.5.6",
+    "@vue/reactivity": "^3.5.13",
     "alien-signals": "^0.4.0",
     "compostate": "0.5.1",
     "kairo": "0.6.0-rc.0",
-    "mobx": "^6.13.2",
-    "mol_wire_lib": "^1.0.1158",
+    "mobx": "^6.13.5",
+    "mol_wire_lib": "^1.0.1200",
     "oby": "15.1.2",
-    "preact": "^10.24.0",
-    "random": "^5.1.0",
+    "preact": "^10.24.3",
+    "random": "^5.1.1",
     "react": "^18.3.1",
     "s-js": "^0.4.9",
-    "signal-polyfill": "^0.1.0",
+    "signal-polyfill": "^0.2.1",
     "signia": "^0.1.5",
-    "solid-js": "^1.8.22",
-    "svelte": "5.0.0-next.268",
+    "solid-js": "^1.9.3",
+    "svelte": "5.2.7",
     "usignal": "^0.9.0",
-    "valtio": "^2.0.0"
+    "valtio": "^2.1.2"
   },
   "devDependencies": {
-    "@types/node": "^22.5.5",
-    "esbuild": "^0.23.1",
+    "@types/node": "^22.9.1",
+    "esbuild": "^0.24.0",
     "prettier": "^3.3.3",
-    "vitest": "^2.1.1"
+    "vitest": "^2.1.5"
   }
 }
