@@ -1,13 +1,8 @@
 import { ReactiveFramework } from "../util/reactiveFramework";
 import { proxy } from "valtio/vanilla";
-import { watch } from "valtio/utils";
+import { batch, computed, effect } from "valtio-reactive";
 
-// The Valtio adapter is currently not working and unused: https://github.com/pmndrs/valtio/discussions/949
-
-type WatchGet = <T extends object>(proxyObject: T) => T;
-
-// stack of watch getters because Valtio doesn't auto-track dependency reads
-let watchGet: Array<WatchGet> = [];
+// For more discussion, see: https://github.com/pmndrs/valtio/discussions/949
 
 export const valtioFramework: ReactiveFramework = {
   name: "Valtio",
@@ -16,44 +11,19 @@ export const valtioFramework: ReactiveFramework = {
     return {
       write: (v) => (s.value = v),
       read: () => {
-        const get = watchGet.at(-1);
-        if (get) {
-          return get(s).value;
-        } else {
-          return s.value;
-        }
+        return s.value;
       },
     };
   },
   computed: (fn) => {
-    const c = proxy({
-      get value() {
-        return fn();
-      },
-    });
+    const c = computed({ value: fn });
     return {
       read: () => {
-        const get = watchGet.at(-1);
-        if (get) {
-          return get(c).value;
-        } else {
-          return c.value;
-        }
+        return c.value;
       },
     };
   },
-  effect: (fn) => {
-    return watch(
-      (get) => {
-        watchGet.push(get);
-        fn();
-        watchGet.pop();
-      },
-      {
-        sync: true,
-      }
-    );
-  },
-  withBatch: (fn) => fn(),
+  effect,
+  withBatch: (fn) => batch(fn),
   withBuild: (fn) => fn(),
 };

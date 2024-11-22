@@ -71,6 +71,9 @@ importers:
       valtio:
         specifier: ^2.1.2
         version: 2.1.2(react@18.3.1)
+      valtio-reactive:
+        specifier: ^0.1.0
+        version: 0.1.0(valtio@2.1.2(react@18.3.1))
     devDependencies:
       '@types/node':
         specifier: ^22.9.1
@@ -1115,6 +1118,11 @@ packages:
     resolution: {integrity: sha512-CVNliz6KF2yet3HBIkbFJKZmjlt95C8dsNZDnwoS6X98+QJRpsSz9uxo3TziBqdyJQkWwfD3VG9lRzsQNvF24Q==}
     engines: {node: '>= 0.6.0'}
 
+  valtio-reactive@0.1.0:
+    resolution: {integrity: sha512-Tct50NWi/wV5/Glg5Dd+0AySjSib4JEhZ33ysduHuLImjOq8Xu8FW/Aj4ISyzEMMzzDFkUUVvD/EpHBqUtFKLg==}
+    peerDependencies:
+      valtio: '>=2.0.0'
+
   valtio@2.1.2:
     resolution: {integrity: sha512-fhekN5Rq7dvHULHHBlJeXHrQDl0Jj9GXfNavCm3gkD06crGchaG1nf/J7gSlfZU2wPcRdVS5jBKWHtE2NNz97A==}
     engines: {node: '>=12.20.0'}
@@ -1990,6 +1998,10 @@ snapshots:
   usignal@0.9.0: {}
 
   v8-natives@1.2.5: {}
+
+  valtio-reactive@0.1.0(valtio@2.1.2(react@18.3.1)):
+    dependencies:
+      valtio: 2.1.2(react@18.3.1)
 
   valtio@2.1.2(react@18.3.1):
     dependencies:
