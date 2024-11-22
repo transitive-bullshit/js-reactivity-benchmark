@@ -23,6 +23,9 @@ importers:
       '@vue/reactivity':
         specifier: ^3.5.6
         version: 3.5.6
+      alien-signals:
+        specifier: ^0.4.0
+        version: 0.4.0
       compostate:
         specifier: 0.5.1
         version: 0.5.1
@@ -702,6 +705,9 @@ packages:
     resolution: {integrity: sha512-tcpGyI9zbizT9JbV6oYE477V6mTlXvvi0T0G3SNIYE2apm/G5huBa1+K89VGeovbg+jycCrfhl3ADxErOuO6Jg==}
     engines: {node: '>=0.4.0'}
     hasBin: true
+
+  alien-signals@0.4.0:
+    resolution: {integrity: sha512-+8Y9suDL1LKwtsJkfvDrU73cmhbB5GLIp17Vt86Uvz9TxrafySsmR43QRKFN7P9uEYmHvii6dN0CL/4gF8wwAw==}
 
   ansi-regex@4.1.1:
     resolution: {integrity: sha512-ILlv4k/3f6vfQ4OoP2AGvirOktlQ98ZEL1k9FaQjxa3L1abBgbuTDAdPOpvbGncC0BTVQrl+OM8xZGK6tWXt7g==}
@@ -1551,6 +1557,8 @@ snapshots:
       acorn: 8.12.1
 
   acorn@8.12.1: {}
+
+  alien-signals@0.4.0: {}
 
   ansi-regex@4.1.1: {}
 
