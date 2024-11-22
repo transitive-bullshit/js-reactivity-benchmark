@@ -41,7 +41,7 @@ We're also working on enabling consistent logging and efficient tracking of GC t
 ## Results
 
 <p align='center'>
-  <img src="https://github.com/user-attachments/assets/b70dfedc-7eb8-4aca-b257-7f6ccadac11a" alt="Average benchmark results across frameworks">
+  <img src="https://github.com/user-attachments/assets/d762a2e7-99dd-41b3-b907-82c4578ec878" alt="Average benchmark results across frameworks">
   (<em>lower times are better</em>)
 </p>
 
