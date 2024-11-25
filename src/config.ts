@@ -16,9 +16,12 @@ import { vueReactivityFramework } from "./frameworks/vueReactivity";
 import { xReactivityFramework } from "./frameworks/xReactivity";
 import { svelteFramework } from "./frameworks/svelte";
 // import { compostateFramework } from "./frameworks/compostate";
-// import { valtioFramework } from "./frameworks/valtio";
+import { valtioFramework } from "./frameworks/valtio";
 
 export const frameworkInfo: FrameworkInfo[] = [
+  // NOTE: Valtio currently hangs on some of the `dynamic` tests, so disable it if you want to run them. (https://github.com/pmndrs/valtio/discussions/949)
+  { framework: valtioFramework },
+
   { framework: alienFramework, testPullCounts: true },
   { framework: preactSignalFramework, testPullCounts: true },
   { framework: svelteFramework, testPullCounts: true },
@@ -41,8 +44,6 @@ export const frameworkInfo: FrameworkInfo[] = [
   // { framework: compostateFramework },
   // NOTE: the kairo adapter is currently broken and unused.
   // { framework: kairoFramework, testPullCounts: true },
-  // NOTE: Valtio currently hangs on some of the `dynamic` tests, so disable it if you want to run them. (https://github.com/pmndrs/valtio/discussions/949)
-  // { framework: valtioFramework },
 ];
 
 export const perfTests: TestConfig[] = [
