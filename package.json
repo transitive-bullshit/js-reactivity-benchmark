@@ -33,7 +33,8 @@
     "solid-js": "^1.9.3",
     "svelte": "5.2.8",
     "usignal": "^0.9.0",
-    "valtio": "^2.1.2"
+    "valtio": "^2.1.2",
+    "valtio-reactive": "^0.1.0"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",
