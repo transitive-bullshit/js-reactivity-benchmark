@@ -13,7 +13,7 @@ import * as $ from "svelte/internal/client";
 export const svelteFramework: ReactiveFramework = {
   name: "Svelte v5",
   signal: (initialValue) => {
-    const s = $.state(initialValue);
+    const s = $.source(initialValue);
     return {
       write: (v) => $.set(s, v),
       read: () => $.get(s),

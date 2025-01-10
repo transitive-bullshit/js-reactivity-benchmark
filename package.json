@@ -31,7 +31,7 @@
     "signal-polyfill": "^0.2.1",
     "signia": "^0.1.5",
     "solid-js": "^1.9.3",
-    "svelte": "5.8.0",
+    "svelte": "^5.17.3",
     "usignal": "^0.9.0",
     "valtio": "^2.1.2"
   },
