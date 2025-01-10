@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@amadeus-it-group/tansu": "^2.0.0",
     "@angular/core": "19.0.6",
     "@preact/signals": "^2.0.0",
     "@reactively/core": "^0.0.8",
