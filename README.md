@@ -36,7 +36,7 @@ We're also working on enabling consistent logging and efficient tracking of GC t
 - [uSignal](https://github.com/WebReflection/usignal)
 - [Valtio](https://github.com/pmndrs/valtio)
 - [Vue Reactivity](https://vuejs.org/guide/essentials/reactivity-fundamentals.html)
-- [x-reactivity](https://www.npmjs.com/package/@solidjs/reactivity)
+- [x-reactivity](https://www.npmjs.com/package/@solidjs/signals)
 
 ## Results
 

@@ -17,9 +17,6 @@ importers:
       '@reactively/core':
         specifier: ^0.0.8
         version: 0.0.8
-      '@solidjs/reactivity':
-        specifier: ^0.0.9
-        version: 0.0.9
       '@vue/reactivity':
         specifier: ^3.5.13
         version: 3.5.13

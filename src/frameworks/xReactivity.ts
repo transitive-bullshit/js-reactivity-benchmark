@@ -5,7 +5,7 @@ import {
   createMemo,
   createRoot,
   createSignal,
-} from "@solidjs/reactivity";
+} from "@solidjs/signals";
 
 export const xReactivityFramework: ReactiveFramework = {
   name: "x-reactivity",
