@@ -40,8 +40,9 @@ We're also working on enabling consistent logging and efficient tracking of GC t
 ## Results
 
 <p align='center'>
-  <img src="https://github.com/user-attachments/assets/d762a2e7-99dd-41b3-b907-82c4578ec878" alt="Average benchmark results across frameworks">
+  <img src="https://github.com/user-attachments/assets/c6007d17-ae5c-4363-9cdb-9fd6c5a3ebbe"
+	 alt="Average benchmark results across frameworks">
   (<em>lower times are better</em>)
 </p>
 
-These results were last updated _November 22 2024_ on an M3 Macbook Pro using Node.js v22.10.0.
+These results were last updated _January 10 2025_ on an M3 Macbook Pro using Node.js v22.10.0.
