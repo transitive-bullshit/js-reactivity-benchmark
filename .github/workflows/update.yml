@@ -1,0 +1,57 @@
+name: Update
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # Runs daily at midnight UTC
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  update:
+    name: Update deps
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: true
+      matrix:
+        node-version: [lts/*]
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --strict-peer-dependencies
+
+      - name: Check for outdated dependencies
+        id: outdated
+        run: pnpm outdated || echo "outdated=true" >> "$GITHUB_OUTPUT"
+
+      - name: Update dependencies
+        if: ${{ steps.outdated.outputs.outdated == 'true' }}
+        run: pnpm update -L
+
+      - name: Run tests
+        if: ${{ steps.outdated.outputs.outdated == 'true' }}
+        run: pnpm test
+
+      - name: Create PR for updated dependencies
+        if: ${{ steps.outdated.outputs.outdated == 'true' && success() }}
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: "chore: update deps"
+          branch: "update-dependencies"
+          title: "Update Deps"
+          body: |
+            Automated dependency updates performed using `pnpm`.
+            All tests have passed successfully.
+          labels: |
+            automated
+            dependencies
