@@ -1,28 +1,23 @@
-import {
-  Computed,
-  Effect,
-  endBatch,
-  Signal,
-  startBatch,
-} from "alien-signals/esm";
+import { getDefaultSystem } from "alien-signals/esm";
 import { ReactiveFramework } from "../util/reactiveFramework";
+
+const { signal, computed, effect, startBatch, endBatch } = getDefaultSystem();
 
 export const alienFramework: ReactiveFramework = {
   name: "alien-signals",
   signal: (initial) => {
-    const data = new Signal(initial);
+    const data = signal(initial);
     return {
-      read: () => data.get(),
-      write: (v) => data.set(v),
+      read: data,
+      write: data,
     };
   },
   computed: (fn) => {
-    const c = new Computed(fn);
     return {
-      read: () => c.get(),
+      read: computed(fn),
     };
   },
-  effect: (fn) => new Effect(fn).run(),
+  effect: effect,
   withBatch: (fn) => {
     startBatch();
     fn();

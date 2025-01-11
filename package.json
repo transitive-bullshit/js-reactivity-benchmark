@@ -18,7 +18,7 @@
     "@preact/signals": "^2.0.0",
     "@reactively/core": "^0.0.8",
     "@vue/reactivity": "^3.5.13",
-    "alien-signals": "^0.6.0",
+    "alien-signals": "1.0.0-alpha.1",
     "compostate": "0.6.0-alpha.1",
     "kairo": "0.6.0-rc.0",
     "mobx": "^6.13.5",
