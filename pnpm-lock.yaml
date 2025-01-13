@@ -36,8 +36,8 @@ importers:
         specifier: ^6.13.5
         version: 6.13.5
       mol_wire_lib:
-        specifier: ^1.0.1259
-        version: 1.0.1259
+        specifier: ^1.0.1261
+        version: 1.0.1261
       oby:
         specifier: 15.1.2
         version: 15.1.2
@@ -934,8 +934,8 @@ packages:
   mobx@6.13.5:
     resolution: {integrity: sha512-/HTWzW2s8J1Gqt+WmUj5Y0mddZk+LInejADc79NJadrWla3rHzmRHki/mnEUH1AvOmbNTZ1BRbKxr8DSgfdjMA==}
 
-  mol_wire_lib@1.0.1259:
-    resolution: {integrity: sha512-2f6qUDIZJ/MjivSgI3BBbbGE5fo9eXaulMeBaIqeCbv0xrqWDT4lE2qAfrQl/ckdVcW7Ecu7gsvpwaRBZ+PLVQ==}
+  mol_wire_lib@1.0.1261:
+    resolution: {integrity: sha512-V7H0W5O0AUNTR56PxhdUyh3xgDsPH8RwNc03W6aD9TrcAEyobFfz4Mh36A/DCPfl4oOzIEsRpdoJoUiUp4Bg0A==}
 
   mol_wire_lib@1.0.488:
     resolution: {integrity: sha512-AqGNHtM5HvxdYKXMt85ESXG+Owj/E6HEUM2a0SKoCpx+R4uHrqM3V8HABt13twXzMDDfjO713TRWQb7Qb4EQRA==}
@@ -1831,7 +1831,7 @@ snapshots:
 
   mobx@6.13.5: {}
 
-  mol_wire_lib@1.0.1259: {}
+  mol_wire_lib@1.0.1261: {}
 
   mol_wire_lib@1.0.488: {}
 
