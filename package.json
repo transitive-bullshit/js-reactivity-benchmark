@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "vitest run",
-    "build": "esbuild src/index.ts --bundle --format=cjs --platform=node --outdir=dist --sourcemap=external",
+    "build": "esbuild src/index.ts --bundle --splitting --format=esm --platform=node --outdir=dist --sourcemap=external",
     "run": "node --expose-gc dist/index.js",
-    "bench": "esbuild src/index.ts --bundle --format=cjs --platform=node | node --expose-gc"
+    "bench": "pnpm run build && pnpm run run"
   },
   "keywords": [],
   "author": "",
