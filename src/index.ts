@@ -10,9 +10,9 @@ async function main() {
   logPerfResult(perfReportHeaders());
   (globalThis as any).__DEV__ = true;
 
-  for (const frameworkTest of frameworkInfo) {
+  for (const frameworkTestPromise of frameworkInfo) {
+    const frameworkTest = await frameworkTestPromise();
     const { framework } = frameworkTest;
-
     await kairoBench(framework);
     await molBench(framework);
     sbench(framework);
