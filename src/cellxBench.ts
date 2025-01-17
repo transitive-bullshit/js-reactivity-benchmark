@@ -1,5 +1,4 @@
 // The following is an implementation of the cellx benchmark https://github.com/Riim/cellx/blob/master/perf/perf.html
-import { logPerfResult } from "./util/perfLogging";
 import { Computed, ReactiveFramework } from "./util/reactiveFramework";
 
 const cellx = (framework: ReactiveFramework, layers: number) => {
@@ -117,10 +116,10 @@ export const cellxbench = (framework: ReactiveFramework) => {
       total += elapsed;
     }
 
-    logPerfResult({
+    process.send?.({
       framework: framework.name,
       test: `cellx${layers}`,
-      time: total.toFixed(2),
+      time: total,
     });
   }
 
