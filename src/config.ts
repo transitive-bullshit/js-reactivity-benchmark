@@ -1,5 +1,7 @@
 import { TestConfig, FrameworkInfo } from "./util/frameworkTypes";
 
+export let executions = 3;
+
 export const frameworkInfo: (() => Promise<FrameworkInfo>)[] = [
   async () => ({ framework: (await import("./frameworks/alienSignals")).alienFramework, testPullCounts: true }),
   async () => ({ framework: (await import("./frameworks/preactSignals")).preactSignalFramework, testPullCounts: true }),

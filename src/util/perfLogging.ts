@@ -1,5 +1,4 @@
 import { TestConfig } from "./frameworkTypes";
-import { TestResult, TimingResult } from "./perfTests";
 
 export function logPerfResult(row: PerfRowStrings): void {
   const line = Object.values(trimColumns(row)).join(" , ");
@@ -13,7 +12,7 @@ export interface PerfRowStrings {
 }
 
 const columnWidth = {
-  framework: 22,
+  framework: 32,
   test: 60,
   time: 8,
 };
@@ -23,20 +22,6 @@ export function perfReportHeaders(): PerfRowStrings {
   const kv = keys.map((key) => [key, key]);
   const untrimmed = Object.fromEntries(kv);
   return trimColumns(untrimmed);
-}
-
-export function perfRowStrings(
-  frameworkName: string,
-  config: TestConfig,
-  timed: TimingResult<TestResult>
-): PerfRowStrings {
-  const { timing } = timed;
-
-  return {
-    framework: frameworkName,
-    test: `${makeTitle(config)} (${config.name || ""})`,
-    time: timing.time.toFixed(2),
-  };
 }
 
 export function makeTitle(config: TestConfig): string {
