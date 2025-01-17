@@ -1,4 +1,5 @@
 import cluster from "cluster";
+import os from "os";
 import { dynamicBench } from "./dynamicBench";
 // import { cellxbench } from "./cellxBench";
 import { sbench } from "./sBench";
@@ -7,6 +8,7 @@ import { logPerfResult, perfReportHeaders } from "./util/perfLogging";
 import { molBench } from "./molBench";
 import { kairoBench } from "./kairoBench";
 import { FrameworkInfo } from "./util/frameworkTypes";
+import { writeFileSync } from "fs";
 
 async function testFramework(frameworkTestPromise: () => Promise<FrameworkInfo>) {
   try {
@@ -35,6 +37,20 @@ async function testFramework(frameworkTestPromise: () => Promise<FrameworkInfo>)
 const average = (times: number[]) => times.reduce((a, b) => a + b, 0) / times.length;
 
 async function main() {
+  const system = {
+    engine: process.versions,
+    os: {
+      platform: os.platform(),
+      type: os.type(),
+      release: os.release(),
+      version: os.version(),
+    },
+    hardware: {
+      machine: os.machine(),
+      cpus: os.cpus().map(({ model }) => model),
+    },
+  };
+  const startTime = Date.now();
   logPerfResult(perfReportHeaders());
 
   const frameworkSummary = new Map<string, Record<string, number[]>>();
@@ -77,6 +93,20 @@ async function main() {
       });
     }
     console.log("");
+    const endTime = Date.now();
+    writeFileSync(
+      "results.js",
+      `globalThis.BENCHMARK_RESULTS = ${JSON.stringify(
+        {
+          startTime,
+          endTime,
+          system,
+          results: summary,
+        },
+        null,
+        "\t"
+      )};`
+    );
   };
   process.on("SIGUSR1", logSummary);
   process.on("SIGINT", () => process.exit(1));
