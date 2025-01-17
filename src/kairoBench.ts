@@ -7,7 +7,6 @@ import { repeatedObservers } from "./kairo/repeated";
 import { triangle } from "./kairo/triangle";
 import { unstable } from "./kairo/unstable";
 import { fastestTest } from "./util/benchRepeat";
-import { logPerfResult } from "./util/perfLogging";
 import { ReactiveFramework } from "./util/reactiveFramework";
 
 const cases = [
@@ -37,10 +36,10 @@ export async function kairoBench(framework: ReactiveFramework) {
       }
     });
 
-    logPerfResult({
+    process.send?.({
       framework: framework.name,
       test: c.name,
-      time: timing.time.toFixed(2),
+      time: timing.time,
     });
   }
 }

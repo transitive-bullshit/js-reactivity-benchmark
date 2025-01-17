@@ -1,5 +1,5 @@
 import { Counter, makeGraph, runGraph } from "./util/dependencyGraph";
-import { logPerfResult, perfRowStrings } from "./util/perfLogging";
+import { makeTitle } from "./util/perfLogging";
 import { verifyBenchResult } from "./util/perfTests";
 import { FrameworkInfo } from "./util/frameworkTypes";
 import { perfTests } from "./config";
@@ -41,7 +41,7 @@ export async function dynamicBench(
       return { sum, count: counter.count };
     });
 
-    logPerfResult(perfRowStrings(framework.name, config, timedResult));
+    process.send?.({ framework: framework.name, test: `${makeTitle(config)} (${config.name || ""})`, time: timedResult.timing.time });
     verifyBenchResult(frameworkTest, config, timedResult);
   }
 }

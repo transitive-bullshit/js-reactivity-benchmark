@@ -1,5 +1,4 @@
 // Inspired by https://github.com/solidjs/solid/blob/main/packages/solid/bench/bench.cjs
-import { logPerfResult } from "./util/perfLogging";
 import { Computed, Signal, ReactiveFramework } from "./util/reactiveFramework";
 
 const COUNT = 1e5;
@@ -31,10 +30,10 @@ export function sbench(framework: ReactiveFramework) {
     scount: number
   ) {
     const time = run(fn, count, scount);
-    logPerfResult({
+    process.send?.({
       framework: framework.name,
       test: fn.name,
-      time: time.toFixed(2),
+      time: time,
     });
   }
 
