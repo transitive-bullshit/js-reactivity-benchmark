@@ -7,6 +7,7 @@ import { logPerfResult, perfReportHeaders } from "./util/perfLogging";
 import { molBench } from "./molBench";
 import { kairoBench } from "./kairoBench";
 import { FrameworkInfo } from "./util/frameworkTypes";
+import { writeFileSync } from "fs";
 
 async function testFramework(frameworkTestPromise: () => Promise<FrameworkInfo>) {
   try {
@@ -68,6 +69,7 @@ async function main() {
       });
     }
     console.log("");
+    writeFileSync("results.js", `globalThis.BENCHMARK_RESULTS = ${JSON.stringify(summary, null, "\t")};`);
   };
   process.on("SIGUSR1", logSummary);
   process.on("SIGINT", () => process.exit(1));
