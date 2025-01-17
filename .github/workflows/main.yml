@@ -32,3 +32,14 @@ jobs:
 
       - name: Run build
         run: pnpm build
+
+      - name: Run benchmarks
+        run: pnpm run run
+
+      - name: Upload benchmark results
+        uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-results
+          path: |
+            results.js
+            results.html
