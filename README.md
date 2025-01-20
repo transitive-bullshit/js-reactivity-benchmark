@@ -32,6 +32,7 @@ We're also working on enabling consistent logging and efficient tracking of GC t
 - [Signia](https://github.com/tldraw/signia)
 - [Solid](https://github.com/solidjs/solid)
 - [Svelte v5](https://svelte.dev/blog/runes)
+- [Tansu](https://github.com/AmadeusITGroup/tansu)
 - [TC39 Signals Proposal](https://github.com/tc39/proposal-signals) [polyfill](https://github.com/proposal-signals/signal-polyfill)
 - [uSignal](https://github.com/WebReflection/usignal)
 - [Valtio](https://github.com/pmndrs/valtio)
