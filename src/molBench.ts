@@ -1,5 +1,4 @@
 import { fastestTest } from "./util/benchRepeat";
-import { logPerfResult } from "./util/perfLogging";
 import { ReactiveFramework } from "./util/reactiveFramework";
 
 function fib(n: number): number {
@@ -55,9 +54,9 @@ export async function molBench(framework: ReactiveFramework) {
     }
   });
 
-  logPerfResult({
+  process.send?.({
     framework: framework.name,
     test: "molBench",
-    time: timing.time.toFixed(2),
+    time: timing.time,
   });
 }

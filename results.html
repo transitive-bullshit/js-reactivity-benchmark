@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>js-reactivity-benchmark results</title>
+    <script src="./results.js"></script>
+  </head>
+  <body>
+    <style>
+      canvas {
+        margin-bottom: 30px;
+      }
+    </style>
+    <script
+      src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.js"
+      crossorigin="anonymous"
+      integrity="sha256-KBLLiCX9xXRp6y97sFXpQpJE5ZmSBRHuR36ChJm2Mss="
+    ></script>
+    <h1>js-reactivity-benchmark results</h1>
+    <script type="module">
+      const BENCHMARK_RESULTS = globalThis.BENCHMARK_RESULTS;
+      if (!BENCHMARK_RESULTS) {
+        const msg = document.createElement("div");
+        msg.textContent = 'Run benchmarks with "pnpm bench" then refresh this page to see the results.';
+        document.body.appendChild(msg);
+      } else {
+        const results = BENCHMARK_RESULTS.results;
+        const createChart = (label, data, props) => {
+          const canvas = document.createElement("canvas");
+          document.body.appendChild(canvas);
+          new Chart(canvas.getContext("2d"), {
+            type: "bar",
+            data: {
+              labels: data.map(({ label }) => label),
+              datasets: props.map((prop) => ({
+                label: prop,
+                data: data.map((item) => item[prop]),
+                borderWidth: 1,
+                backgroundColor: data.map(({ color }) => color),
+              })),
+            },
+            options: {
+              indexAxis: "y",
+              plugins: {
+                title: {
+                  display: true,
+                  text: label,
+                },
+                legend: {
+                  display: false,
+                },
+              },
+            },
+          });
+        };
+        const progressiveColors = [
+          [0, 255, 0],
+          [255, 255, 0],
+          [255, 0, 0],
+        ];
+        results.forEach((framework, i) => {
+          const percent = results.length === 1 ? 0 : i / (results.length - 1);
+          const [startColor, endColor] =
+            percent < 0.5 ? [progressiveColors[0], progressiveColors[1]] : [progressiveColors[1], progressiveColors[2]];
+          const relativePercent = percent < 0.5 ? percent * 2 : (percent - 0.5) * 2;
+          const r = Math.round(startColor[0] + (endColor[0] - startColor[0]) * relativePercent);
+          const g = Math.round(startColor[1] + (endColor[1] - startColor[1]) * relativePercent);
+          const b = Math.round(startColor[2] + (endColor[2] - startColor[2]) * relativePercent);
+          framework.color = `rgba(${r}, ${g}, ${b}, 0.9)`;
+        });
+        createChart(
+          "Average time",
+          results.map(({ framework, average, color }) => ({ label: framework, average, color })),
+          ["average"]
+        );
+        Object.keys(results[0].tests).forEach((testName) => {
+          const data = results
+            .map(({ framework, tests, color }) => {
+              const testInfo = tests[testName];
+              if (!testInfo || testInfo.length === 0) {
+                return null;
+              }
+              let min = Infinity;
+              let max = -Infinity;
+              let sum = 0;
+              for (const time of testInfo) {
+                if (time < min) {
+                  min = time;
+                }
+                if (time > max) {
+                  max = time;
+                }
+                sum += time;
+              }
+              const average = sum / testInfo.length;
+              return {
+                label: framework,
+                min,
+                average,
+                max,
+                color,
+              };
+            })
+            .filter((result) => !!result)
+            .sort(({ average: average1 }, { average: average2 }) => average1 - average2);
+          createChart(testName, data, ["min", "average", "max"]);
+        });
+        const addInfo = (text, tag = "div") => {
+          const infos = document.createElement(tag);
+          infos.innerText = text;
+          document.body.appendChild(infos);
+        };
+        addInfo(`Tests start time: ${new Date(BENCHMARK_RESULTS.startTime).toString()}`);
+        addInfo(`Tests end time: ${new Date(BENCHMARK_RESULTS.endTime).toString()}`);
+        addInfo(`${JSON.stringify(BENCHMARK_RESULTS.system, null, 2)}`, "pre");
+      }
+    </script>
+  </body>
+</html>

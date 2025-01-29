@@ -3,7 +3,7 @@ import { expect, test, vi } from "vitest";
 import { FrameworkInfo, TestConfig } from "./util/frameworkTypes";
 import { frameworkInfo } from "./config";
 
-frameworkInfo.forEach((frameworkInfo) => frameworkTests(frameworkInfo));
+(await Promise.all(frameworkInfo.map((frameworkLoader) => frameworkLoader()))).forEach((frameworkInfo) => frameworkTests(frameworkInfo));
 
 function makeConfig(): TestConfig {
   return {

@@ -1,48 +1,32 @@
 import { TestConfig, FrameworkInfo } from "./util/frameworkTypes";
 
-import { alienFramework } from "./frameworks/alienSignals";
-import { angularFramework } from "./frameworks/angularSignals";
-import { mobxFramework } from "./frameworks/mobx";
-import { tc39SignalsProposalStage0 } from "./frameworks/tc39-proposal-signals-stage-0";
-import { molWireFramework } from "./frameworks/molWire";
-import { obyFramework } from "./frameworks/oby";
-import { preactSignalFramework } from "./frameworks/preactSignals";
-import { reactivelyFramework } from "./frameworks/reactively";
-import { signiaFramework } from "./frameworks/signia";
-import { solidFramework } from "./frameworks/solid";
-import { sFramework } from "./frameworks/s";
-import { usignalFramework } from "./frameworks/uSignal";
-import { vueReactivityFramework } from "./frameworks/vueReactivity";
-import { svelteFramework } from "./frameworks/svelte";
-import { tansuFramework } from "./frameworks/tansu";
-// import { compostateFramework } from "./frameworks/compostate";
-// import { valtioFramework } from "./frameworks/valtio";
+export let executions = 3;
 
-export const frameworkInfo: FrameworkInfo[] = [
-  { framework: alienFramework, testPullCounts: true },
-  { framework: preactSignalFramework, testPullCounts: true },
-  { framework: svelteFramework, testPullCounts: true },
-  { framework: tc39SignalsProposalStage0, testPullCounts: true },
-  { framework: reactivelyFramework, testPullCounts: true },
-  { framework: sFramework },
-  { framework: tansuFramework, testPullCounts: true },
-  { framework: angularFramework, testPullCounts: true },
-  { framework: molWireFramework, testPullCounts: true },
-  { framework: obyFramework, testPullCounts: true },
-  { framework: signiaFramework, testPullCounts: true },
-  { framework: solidFramework },
-  { framework: usignalFramework, testPullCounts: true },
-  { framework: vueReactivityFramework, testPullCounts: true },
+export const frameworkInfo: (() => Promise<FrameworkInfo>)[] = [
+  async () => ({ framework: (await import("./frameworks/alienSignals")).alienFramework, testPullCounts: true }),
+  async () => ({ framework: (await import("./frameworks/preactSignals")).preactSignalFramework, testPullCounts: true }),
+  async () => ({ framework: (await import("./frameworks/svelte")).svelteFramework, testPullCounts: true }),
+  async () => ({ framework: (await import("./frameworks/tc39-proposal-signals-stage-0")).tc39SignalsProposalStage0, testPullCounts: true }),
+  async () => ({ framework: (await import("./frameworks/reactively")).reactivelyFramework, testPullCounts: true }),
+  async () => ({ framework: (await import("./frameworks/s")).sFramework }),
+  async () => ({ framework: (await import("./frameworks/tansu")).tansuFramework, testPullCounts: true }),
+  async () => ({ framework: (await import("./frameworks/angularSignals")).angularFramework, testPullCounts: true }),
+  async () => ({ framework: (await import("./frameworks/molWire")).molWireFramework, testPullCounts: true }),
+  async () => ({ framework: (await import("./frameworks/oby")).obyFramework, testPullCounts: true }),
+  async () => ({ framework: (await import("./frameworks/signia")).signiaFramework, testPullCounts: true }),
+  async () => ({ framework: (await import("./frameworks/solid")).solidFramework }),
+  async () => ({ framework: (await import("./frameworks/uSignal")).usignalFramework, testPullCounts: true }),
+  async () => ({ framework: (await import("./frameworks/vueReactivity")).vueReactivityFramework, testPullCounts: true }),
   // NOTE: MobX currently hangs on some of the `dynamic` tests and `cellx` tests, so disable it if you want to run them. (https://github.com/mobxjs/mobx/issues/3926)
-  { framework: mobxFramework, testPullCounts: false },
+  async () => ({ framework: (await import("./frameworks/mobx")).mobxFramework, testPullCounts: false }),
 
   // --- Disabled frameworks ---
   // NOTE: the compostate adapter is currently broken and unused.
-  // { framework: compostateFramework },
+  // async () => ({ framework: (await import("./frameworks/compostate")).compostateFramework }),
   // NOTE: the kairo adapter is currently broken and unused.
-  // { framework: kairoFramework, testPullCounts: true },
+  // async () => ({ framework: (await import("./frameworks/kairo")).kairoFramework, testPullCounts: true }),
   // NOTE: Valtio currently hangs on some of the `dynamic` tests, so disable it if you want to run them. (https://github.com/pmndrs/valtio/discussions/949)
-  // { framework: valtioFramework },
+  // async () => ({ framework: (await import("./frameworks/valtio")).valtioFramework }),
 ];
 
 export const perfTests: TestConfig[] = [
