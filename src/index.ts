@@ -1,3 +1,4 @@
+import cluster from "cluster";
 import { dynamicBench } from "./dynamicBench";
 // import { cellxbench } from "./cellxBench";
 import { sbench } from "./sBench";
@@ -5,14 +6,14 @@ import { frameworkInfo } from "./config";
 import { logPerfResult, perfReportHeaders } from "./util/perfLogging";
 import { molBench } from "./molBench";
 import { kairoBench } from "./kairoBench";
+import { FrameworkInfo } from "./util/frameworkTypes";
 
-async function main() {
-  logPerfResult(perfReportHeaders());
-  (globalThis as any).__DEV__ = true;
+async function testFramework(frameworkTestPromise: () => Promise<FrameworkInfo>) {
+  try {
+    (globalThis as any).__DEV__ = true;
 
-  for (const frameworkTest of frameworkInfo) {
+    const frameworkTest = await frameworkTestPromise();
     const { framework } = frameworkTest;
-
     await kairoBench(framework);
     await molBench(framework);
     sbench(framework);
@@ -24,8 +25,31 @@ async function main() {
 
     await dynamicBench(frameworkTest);
 
-    globalThis.gc?.();
+    process.exit(0);
+  } catch (err: any) {
+    console.error(err);
+    process.exit(1);
   }
 }
 
-main();
+async function main() {
+  logPerfResult(perfReportHeaders());
+
+  for (let i = 0, l = frameworkInfo.length; i < l; i++) {
+    await new Promise<void>((resolve, reject) =>
+      cluster.fork({ FRAMEWORK_ID: i }).addListener("exit", (code, signal) => {
+        if (code === 0) {
+          resolve();
+        } else {
+          reject(new Error(`Framework test failed with code ${code} and signal ${signal}`));
+        }
+      })
+    );
+  }
+}
+
+if (cluster.isPrimary) {
+  main();
+} else {
+  testFramework(frameworkInfo[+process.env.FRAMEWORK_ID!]);
+}
