@@ -8,6 +8,7 @@ $ pnpm bench
 
 - Configurable dependency graph: graph shape, density, read rate are all adjustable
 - Easily add new benchmarks and frameworks
+- Easily temporarily remove benchmarks by commenting out lines in `./src/config.js`
 - Supports dynamic reactive nodes
 - Framework agnostic. Simple API to test new reactive frameworks
 - Forces garbage collection between each test
