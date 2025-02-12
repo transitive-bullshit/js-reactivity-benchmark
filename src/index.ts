@@ -1,31 +1,27 @@
 import { dynamicBench } from "./dynamicBench";
 // import { cellxbench } from "./cellxBench";
 import { sbench } from "./sBench";
-import { frameworkInfo } from "./config";
-import { logPerfResult, perfReportHeaders } from "./util/perfLogging";
 import { molBench } from "./molBench";
 import { kairoBench } from "./kairoBench";
+import { FrameworkInfo } from "./util/frameworkTypes";
+import { PerfResultCallback } from "./util/perfResult";
 
-async function main() {
-  logPerfResult(perfReportHeaders());
+export { logPerfResult, logPerfHeaders } from "./util/perfLogging";
+export { FrameworkInfo };
+export { Computed, ReactiveFramework, Signal } from "./util/reactiveFramework";
+
+export async function testFramework(frameworkTest: FrameworkInfo, resultCallback: PerfResultCallback) {
   (globalThis as any).__DEV__ = true;
 
-  for (const frameworkTest of frameworkInfo) {
-    const { framework } = frameworkTest;
+  const { framework } = frameworkTest;
+  await kairoBench(framework, resultCallback);
+  await molBench(framework, resultCallback);
+  sbench(framework, resultCallback);
 
-    await kairoBench(framework);
-    await molBench(framework);
-    sbench(framework);
+  // MobX, Valtio, and Svelte fail this test currently, so disabling it for now.
+  // @see https://github.com/mobxjs/mobx/issues/3926
+  // @see https://github.com/sveltejs/svelte/discussions/13277
+  // cellxbench(framework, resultCallback);
 
-    // MobX, Valtio, and Svelte fail this test currently, so disabling it for now.
-    // @see https://github.com/mobxjs/mobx/issues/3926
-    // @see https://github.com/sveltejs/svelte/discussions/13277
-    // cellxbench(framework);
-
-    await dynamicBench(frameworkTest);
-
-    globalThis.gc?.();
-  }
+  await dynamicBench(frameworkTest, resultCallback);
 }
-
-main();

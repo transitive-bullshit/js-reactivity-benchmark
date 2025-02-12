@@ -1,9 +1,9 @@
 import { Counter, makeGraph, runGraph } from "./util/dependencyGraph";
 import { expect, test, vi } from "vitest";
 import { FrameworkInfo, TestConfig } from "./util/frameworkTypes";
-import { frameworkInfo } from "./config";
+import { frameworkInfo } from "./configFrameworks";
 
-frameworkInfo.forEach((frameworkInfo) => frameworkTests(frameworkInfo));
+(await Promise.all(frameworkInfo.map((frameworkLoader) => frameworkLoader()))).forEach((frameworkInfo) => frameworkTests(frameworkInfo));
 
 function makeConfig(): TestConfig {
   return {

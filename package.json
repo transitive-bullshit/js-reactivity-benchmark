@@ -2,17 +2,20 @@
   "name": "js-reactivity-benchmark",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
   "scripts": {
     "test": "vitest run",
-    "build": "esbuild src/index.ts --bundle --format=cjs --platform=node --outdir=dist --sourcemap=external",
-    "run": "node --expose-gc dist/index.js",
-    "bench": "esbuild src/index.ts --bundle --format=cjs --platform=node | node --expose-gc"
+    "build": "esbuild src/main.ts --bundle --splitting --format=esm --platform=node --outdir=dist --sourcemap=external",
+    "prepare": "esbuild src/index.ts --bundle --splitting --format=esm --platform=node --outdir=dist --sourcemap=external && tsc -p tsconfig.d.json",
+    "run": "node --expose-gc dist/main.js",
+    "bench": "pnpm run build && pnpm run run"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
     "@amadeus-it-group/tansu": "^2.0.0",
     "@angular/core": "19.0.6",
     "@preact/signals": "^2.0.0",
@@ -33,12 +36,11 @@
     "solid-js": "^1.9.4",
     "svelte": "5.17.3",
     "usignal": "^0.9.0",
-    "valtio": "^2.1.2"
-  },
-  "devDependencies": {
+    "valtio": "^2.1.2",
     "@types/node": "^22.10.5",
     "esbuild": "^0.24.2",
     "prettier": "^3.4.2",
+    "typescript": "^5.7.3",
     "vitest": "^2.1.8"
   }
 }

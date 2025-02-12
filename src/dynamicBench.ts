@@ -1,15 +1,17 @@
 import { Counter, makeGraph, runGraph } from "./util/dependencyGraph";
-import { logPerfResult, perfRowStrings } from "./util/perfLogging";
+import { makeTitle } from "./util/perfLogging";
 import { verifyBenchResult } from "./util/perfTests";
 import { FrameworkInfo } from "./util/frameworkTypes";
-import { perfTests } from "./config";
+import { perfTests } from "./configPerfTests";
 import { fastestTest } from "./util/benchRepeat";
+import { PerfResultCallback } from "./util/perfResult";
 
 /** benchmark a single test under single framework.
  * The test is run multiple times and the fastest result is logged to the console.
  */
 export async function dynamicBench(
   frameworkTest: FrameworkInfo,
+  resultCallback: PerfResultCallback,
   testRepeats = 1
 ): Promise<void> {
   const { framework } = frameworkTest;
@@ -41,7 +43,7 @@ export async function dynamicBench(
       return { sum, count: counter.count };
     });
 
-    logPerfResult(perfRowStrings(framework.name, config, timedResult));
+    resultCallback({ framework: framework.name, test: `${makeTitle(config)} (${config.name || ""})`, time: timedResult.timing.time });
     verifyBenchResult(frameworkTest, config, timedResult);
   }
 }

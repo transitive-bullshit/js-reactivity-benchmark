@@ -1,11 +1,11 @@
 // Inspired by https://github.com/solidjs/solid/blob/main/packages/solid/bench/bench.cjs
-import { logPerfResult } from "./util/perfLogging";
 import { Computed, Signal, ReactiveFramework } from "./util/reactiveFramework";
+import { PerfResultCallback } from "./util/perfResult";
 
 const COUNT = 1e5;
 
 type Reader = () => number;
-export function sbench(framework: ReactiveFramework) {
+export function sbench(framework: ReactiveFramework, resultCallback: PerfResultCallback) {
   bench(createDataSignals, COUNT, COUNT);
   bench(createComputations0to1, COUNT, 0);
   bench(createComputations1to1, COUNT, COUNT);
@@ -31,10 +31,10 @@ export function sbench(framework: ReactiveFramework) {
     scount: number
   ) {
     const time = run(fn, count, scount);
-    logPerfResult({
+    resultCallback({
       framework: framework.name,
       test: fn.name,
-      time: time.toFixed(2),
+      time: time,
     });
   }
 
