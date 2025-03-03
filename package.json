@@ -22,7 +22,7 @@
     "compostate": "0.6.0-alpha.1",
     "kairo": "0.6.0-rc.0",
     "mobx": "^6.13.5",
-    "mol_wire_lib": "^1.0.1259",
+    "mol_wire_lib": "^1.0.1261",
     "oby": "15.1.2",
     "preact": "^10.25.4",
     "random": "^5.1.1",
