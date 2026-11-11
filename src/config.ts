@@ -16,8 +16,10 @@ import { usignalFramework } from "./frameworks/uSignal";
 import { vueReactivityFramework } from "./frameworks/vueReactivity";
 import { svelteFramework } from "./frameworks/svelte";
 import { tansuFramework } from "./frameworks/tansu";
+import { reactiveEngineFramework } from "./frameworks/reactiveEngine";
 
 export const frameworkInfo: FrameworkInfo[] = [
+  { framework: reactiveEngineFramework, testPullCounts: true },
   { framework: legendFramework, testPullCounts: false },
   { framework: potaFramework },
   { framework: xReactivityFramework },
