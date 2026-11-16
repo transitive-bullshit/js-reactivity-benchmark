@@ -16,7 +16,7 @@ pnpm check
 pnpm bench
 ```
 
-The default run builds a production ESM bundle with Vite, benchmarks 15 engines, and writes `results/latest.json`, `results/latest.csv`, and `results/latest.md`. Progress goes to stderr; the runner's stdout is CSV. To capture CSV without package-manager/build messages, use `node --expose-gc dist/index.js` after building.
+The default run builds a production ESM bundle with Vite, benchmarks 16 engines, and writes `results/latest.json`, `results/latest.csv`, and `results/latest.md`. Progress goes to stderr; the runner's stdout is CSV. To capture CSV without package-manager/build messages, use `node --expose-gc dist/index.js` after building.
 
 ```sh
 # Fast end-to-end correctness check, saved separately from the full snapshot
@@ -43,22 +43,24 @@ Run `pnpm run run --help` for identifiers. Filtered runs default to `results/fil
 
 ## Included engines
 
-| CLI identifier | Engine                                                                             | Adapter notes                                                                                    |
-| -------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| `alien`        | [Alien Signals](https://github.com/stackblitz/alien-signals)                       | Current public signal/computed/effect API                                                        |
-| `angular`      | [Angular Signals](https://angular.dev/guide/signals)                               | Signals from core; low-level Watch primitive without dependency injection                        |
-| `mobx`         | [MobX](https://mobx.js.org/computeds.html)                                         | `keepAlive: true` so unobserved computeds remain cached, matching the benchmark's memoized reads |
-| `mol`          | [$mol_wire](https://www.npmjs.com/package/mol_wire_lib)                            | Node CJS entry; the package's ESM entry mutates module namespace objects                         |
-| `oby`          | [Oby](https://github.com/vobyjs/oby)                                               | Synchronous initial effects; scheduled updates flushed at batch boundaries                       |
-| `preact`       | [Preact Signals Core](https://github.com/preactjs/signals/tree/main/packages/core) | Standalone engine, without Preact rendering bindings                                             |
-| `polyfill`     | [TC39 Signals polyfill](https://github.com/proposal-signals/signal-polyfill)       | Watcher-based effects; synchronous batch flushing with coalesced microtask scheduling            |
-| `solid`        | [Solid](https://github.com/solidjs/solid)                                          | Client reactive runtime; the Node/server entry does not provide the same behavior                |
-| `svelte`       | [Svelte 5](https://svelte.dev/docs/svelte/what-are-runes)                          | Private client primitives; no compiler or DOM. Must be revalidated on upgrades                   |
-| `tansu`        | [Tansu](https://github.com/AmadeusITGroup/tansu)                                   | Standalone computed stores                                                                       |
-| `tldraw`       | [tldraw state](https://tldraw.dev/sdk-features/signals)                            | Current `@tldraw/state` package, replacing Signia                                                |
-| `usignal`      | [uSignal](https://github.com/WebReflection/usignal)                                | Standalone signal engine                                                                         |
-| `vue`          | [Vue Reactivity](https://github.com/vuejs/core/tree/main/packages/reactivity)      | Shallow refs, computed values, deduplicated effect scheduling                                    |
-| `xreactivity`  | [Solid Signals](https://github.com/solidjs/solid/tree/main/packages/solid-signals) | Standalone Solid signal runtime, based on upstream's x-reactivity adapter                        |
+| CLI identifier   | Engine                                                                             | Adapter notes                                                                                                                         |
+| ---------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `alien`          | [Alien Signals](https://github.com/stackblitz/alien-signals)                       | Current public signal/computed/effect API                                                                                             |
+| `angular`        | [Angular Signals](https://angular.dev/guide/signals)                               | Signals from core; low-level Watch primitive without dependency injection                                                             |
+| `mobx`           | [MobX](https://mobx.js.org/computeds.html)                                         | `keepAlive: true` so unobserved computeds remain cached, matching the benchmark's memoized reads                                      |
+| `mol`            | [$mol_wire](https://www.npmjs.com/package/mol_wire_lib)                            | Node CJS entry; the package's ESM entry mutates module namespace objects                                                              |
+| `oby`            | [Oby](https://github.com/vobyjs/oby)                                               | Synchronous initial effects; scheduled updates flushed at batch boundaries                                                            |
+| `pota`           | [Pota](https://github.com/potahtml/pota)                                           | Current signal-object API; see note below                                                                                             |
+| `reactiveEngine` | [@pravosleva/reactive-engine](https://github.com/garage-13/reactive-engine)        | Public signal/computed/effect/batch API, contributed in [#18](https://github.com/transitive-bullshit/js-reactivity-benchmark/pull/18) |
+| `preact`         | [Preact Signals Core](https://github.com/preactjs/signals/tree/main/packages/core) | Standalone engine, without Preact rendering bindings                                                                                  |
+| `polyfill`       | [TC39 Signals polyfill](https://github.com/proposal-signals/signal-polyfill)       | Watcher-based effects; synchronous batch flushing with coalesced microtask scheduling                                                 |
+| `solid`          | [Solid](https://github.com/solidjs/solid)                                          | Client reactive runtime; the Node/server entry does not provide the same behavior                                                     |
+| `svelte`         | [Svelte 5](https://svelte.dev/docs/svelte/what-are-runes)                          | Private client primitives; no compiler or DOM. Must be revalidated on upgrades                                                        |
+| `tansu`          | [Tansu](https://github.com/AmadeusITGroup/tansu)                                   | Standalone computed stores                                                                                                            |
+| `tldraw`         | [tldraw state](https://tldraw.dev/sdk-features/signals)                            | Current `@tldraw/state` package, replacing Signia                                                                                     |
+| `usignal`        | [uSignal](https://github.com/WebReflection/usignal)                                | Standalone signal engine                                                                                                              |
+| `vue`            | [Vue Reactivity](https://github.com/vuejs/core/tree/main/packages/reactivity)      | Shallow refs, computed values, deduplicated effect scheduling                                                                         |
+| `xreactivity`    | [Solid Signals](https://github.com/solidjs/solid/tree/main/packages/solid-signals) | Standalone Solid signal runtime, based on upstream's x-reactivity adapter                                                             |
 
 `legend` adds [Legend State](https://legendapp.com/open-source/state/v2/) as an experimental adapter for its latest stable release. It passes the adapter tests and small graph workloads, but timed out on larger unobserved dynamic/CellX graphs during this refresh. It is selectable explicitly and excluded from the default comparison. Prerelease v3 is not substituted for the stable npm release.
 
