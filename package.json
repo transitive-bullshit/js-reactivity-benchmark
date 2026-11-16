@@ -31,6 +31,7 @@
     "oby": "15.1.2",
     "pota": "0.22.235",
     "random": "^5.5.1",
+    "reflex-quant": "1.2.0",
     "signal-polyfill": "^0.2.2",
     "solid-js": "^1.9.19",
     "svelte": "5.57.3",
