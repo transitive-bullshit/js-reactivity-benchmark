@@ -18,34 +18,34 @@
   "license": "ISC",
   "dependencies": {
     "@amadeus-it-group/tansu": "^2.0.0",
-    "@angular/core": "22.1.7",
+    "@angular/core": "22.2.6",
     "@legendapp/state": "2.1.15",
     "@pravosleva/reactive-engine": "3.0.0",
-    "@preact/signals-core": "1.14.4",
-    "@solidjs/signals": "2.0.0-rc.0",
-    "@tldraw/state": "5.4.2",
-    "@vue/reactivity": "^3.5.43",
+    "@preact/signals-core": "1.14.5",
+    "@solidjs/signals": "2.0.0-rc.22",
+    "@tldraw/state": "5.6.0",
+    "@vue/reactivity": "^3.5.45",
     "alien-signals": "3.2.1",
-    "mobx": "^7.0.3",
-    "mol_wire_lib": "^1.0.1781",
+    "mobx": "^7.1.7",
+    "mol_wire_lib": "^1.0.1845",
     "oby": "15.1.2",
     "pota": "0.22.235",
     "random": "^5.5.1",
     "signal-polyfill": "^0.2.2",
-    "solid-js": "^1.9.15",
-    "svelte": "5.57.0",
+    "solid-js": "^1.9.19",
+    "svelte": "5.57.3",
     "usignal": "^0.10.0"
   },
   "devDependencies": {
-    "@types/node": "^26.6.1",
-    "prettier": "^3.9.8",
+    "@types/node": "^26.6.6",
+    "prettier": "^3.10.1",
     "typescript": "7.0.2",
-    "vite": "8.3.0",
-    "vitest": "^5.0.1"
+    "vite": "8.3.8",
+    "vitest": "^5.1.0"
   },
   "private": true,
   "type": "module",
-  "packageManager": "pnpm@12.3.4",
+  "packageManager": "pnpm@12.21.0",
   "engines": {
     "node": ">=22.12.0"
   }
