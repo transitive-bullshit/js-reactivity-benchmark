@@ -20,6 +20,7 @@
     "@amadeus-it-group/tansu": "^2.0.0",
     "@angular/core": "22.1.7",
     "@legendapp/state": "2.1.15",
+    "@pravosleva/reactive-engine": "3.0.0",
     "@preact/signals-core": "1.14.4",
     "@solidjs/signals": "2.0.0-rc.0",
     "@tldraw/state": "5.4.2",

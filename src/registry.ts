@@ -16,6 +16,10 @@ export const registry = {
   tldraw: ["@tldraw/state", "@tldraw/state"],
   usignal: ["uSignal", "usignal"],
   vue: ["@vue/reactivity", "@vue/reactivity"],
+  reactiveEngine: [
+    "@pravosleva/reactive-engine",
+    "@pravosleva/reactive-engine",
+  ],
 } as const;
 export type FrameworkId = keyof typeof registry;
 export const suites = ["kairo", "mol", "s", "dynamic", "cellx"] as const;

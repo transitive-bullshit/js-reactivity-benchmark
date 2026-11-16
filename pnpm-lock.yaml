@@ -118,6 +118,9 @@ importers:
       '@legendapp/state':
         specifier: 2.1.15
         version: 2.1.15(react@19.3.0)
+      '@pravosleva/reactive-engine':
+        specifier: 3.0.0
+        version: 3.0.0(@angular/core@22.1.7(rxjs@7.8.2))(react@19.3.0)
       '@preact/signals-core':
         specifier: 1.14.4
         version: 1.14.4
@@ -453,6 +456,24 @@ packages:
 
   '@oxc-project/types@0.150.0':
     resolution: {integrity: sha512-rDS5/31E9HfPl/CIzGrn0DOlvBbXFseQ5URJ9sYMfstbKLD/c6Gm9vmRzRGDdAXyOIL4zmO37lc9RIwYqVruZw==}
+
+  '@pravosleva/reactive-engine@3.0.0':
+    resolution: {integrity: sha512-PBPhmi/CLI2XynzYqUDWPKc0Y8ZSQDr2Q3L9ec7D81I1bWdTgbY0YyepxSqHW99AGDgM1K0kO4axz4usbunXtQ==}
+    engines: {node: '>=22.20.0'}
+    peerDependencies:
+      '@angular/core': '>=16.0.0'
+      react: ^18.0.0 || ^19.2.0
+      react-dom: ^18.0.0 || ^19.2.0
+      vue: '>=3.2.0'
+    peerDependenciesMeta:
+      '@angular/core':
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
+      vue:
+        optional: true
 
   '@preact/signals-core@1.14.4':
     resolution: {integrity: sha512-HNB6HYeYKhQbJ1aKl+YRjrS4+QWHLKX6qKoUsfS/m0vqzsVaEBiZiaKbG/e+NKk2ch5ALQr/ihWaMHxiCuuWHA==}
@@ -1409,6 +1430,11 @@ snapshots:
       react: 19.3.0
 
   '@oxc-project/types@0.150.0': {}
+
+  '@pravosleva/reactive-engine@3.0.0(@angular/core@22.1.7(rxjs@7.8.2))(react@19.3.0)':
+    optionalDependencies:
+      '@angular/core': 22.1.7(rxjs@7.8.2)
+      react: 19.3.0
 
   '@preact/signals-core@1.14.4': {}
 
