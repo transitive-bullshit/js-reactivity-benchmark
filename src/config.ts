@@ -17,6 +17,7 @@ import { vueReactivityFramework } from "./frameworks/vueReactivity";
 import { svelteFramework } from "./frameworks/svelte";
 import { tansuFramework } from "./frameworks/tansu";
 import { reactiveEngineFramework } from "./frameworks/reactiveEngine";
+import { reflexQuantFramework } from "./frameworks/reflexQuant";
 
 export const frameworkInfo: FrameworkInfo[] = [
   { framework: reactiveEngineFramework, testPullCounts: true },
@@ -24,6 +25,7 @@ export const frameworkInfo: FrameworkInfo[] = [
   { framework: potaFramework },
   { framework: xReactivityFramework },
   { framework: alienFramework, testPullCounts: true },
+  { framework: reflexQuantFramework, testPullCounts: true },
   { framework: preactSignalFramework, testPullCounts: true },
   { framework: svelteFramework, testPullCounts: true },
   { framework: tc39SignalsFramework, testPullCounts: true },

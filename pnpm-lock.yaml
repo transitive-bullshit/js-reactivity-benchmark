@@ -217,6 +217,9 @@ importers:
       random:
         specifier: ^5.5.1
         version: 5.5.1
+      reflex-quant:
+        specifier: 1.2.0
+        version: 1.2.0
       signal-polyfill:
         specifier: ^0.2.2
         version: 0.2.2
@@ -973,6 +976,10 @@ packages:
     resolution: {integrity: sha512-QNhWdt7nrgVWWQG58QuGsAR3jv3Hbe4mb4vz7w2csnHavciZJgda1CPNaldF6eVxv90ud3jUXpKlHL69gO38yw==}
     engines: {node: '>=0.10.0'}
 
+  reflex-quant@1.2.0:
+    resolution: {integrity: sha512-k6rM5PvpVubvLQW+8Kq9lxxMbvLRKf+NmrrZeCMrypnyvTmoqhFmUl+em5xJaSlPNejYKAEmwJ0Sd6d7e0AHCg==}
+    engines: {node: '>=18'}
+
   rolldown@1.2.19:
     resolution: {integrity: sha512-QIiV1J9d0pzN4jeeTH4sjPy0AZ6cAy2cG0ExeoE1+U8Rvj+hR3gYkokx0YbeUNGlZqiQJJ2utcETe0oKXwzsuA==}
     engines: {node: ^20.19.0 || >=22.12.0}
@@ -1666,6 +1673,8 @@ snapshots:
   random@5.5.1: {}
 
   react@19.3.1: {}
+
+  reflex-quant@1.2.0: {}
 
   rolldown@1.2.19:
     dependencies:
