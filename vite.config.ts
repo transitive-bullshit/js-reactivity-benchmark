@@ -4,6 +4,7 @@ export default defineConfig({
   define: {
     "process.env.NODE_ENV": JSON.stringify("production"),
     __DEV__: "false",
+    ngDevMode: "false",
   },
   build: {
     ssr: "src/index.ts",
